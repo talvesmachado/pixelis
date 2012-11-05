@@ -1,6 +1,9 @@
 # Apache configuration file
 # httpd.apache.org/docs/2.2/mod/quickreference.html
 
+DirectoryIndex index.php index.html
+
+
 # Note .htaccess files are an overhead, this logic should be in your Apache
 # config if possible: httpd.apache.org/docs/2.2/howto/htaccess.html
 
@@ -333,7 +336,12 @@ FileETag None
   Options +FollowSymlinks
 # Options +SymLinksIfOwnerMatch
   RewriteEngine On
-# RewriteBase /
+RewriteBase /pixelis
+RewriteCond %{REQUEST_URI} ^system.*
+RewriteRule ^(.*)$ /index.php/$1 [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/$1 [L]
 </IfModule>
 
 
