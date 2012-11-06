@@ -1,3 +1,4 @@
+<?php if($this->users_model->isLoggedIn()): ?>
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container">
@@ -6,31 +7,28 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </a>
-            <a class="brand" href="#">Project name</a>
+            <a class="brand" href="<?php print base_url('/'); ?>">PIXELIS</a>
             <div class="nav-collapse collapse">
                 <ul class="nav">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Articles<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-                            <li class="divider"></li>
-                            <li class="nav-header">Nav header</li>
-                            <li><a href="#">Separated link</a></li>
-                            <li><a href="#">One more separated link</a></li>
+                            <li><a href="<?php print base_url('articles'); ?>">Articles</a></li>
+                            <li><a href="<?php print base_url('articles/articles_add'); ?>">Create articles</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">users<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="<?php print base_url('users/users_add'); ?>">Create users</a></li>
                         </ul>
                     </li>
                 </ul>
-                <form class="navbar-form pull-right">
-                    <input class="span2" type="text" placeholder="Email">
-                    <input class="span2" type="password" placeholder="Password">
-                    <button type="submit" class="btn">Sign in</button>
-                </form>
+                <div class="navbar-form pull-right">
+                    <a href="<?php print base_url('/users/users_logout'); ?>" class="btn">logout</a>
+                </div>
             </div><!--/.nav-collapse -->
         </div>
     </div>
 </div>
+<?php endif; ?>

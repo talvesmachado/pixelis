@@ -52,7 +52,7 @@ $autoload['packages'] = array();
 |	$autoload['libraries'] = array('database', 'session', 'xmlrpc');
 */
 
-$autoload['libraries'] = array('krumo', 'database');
+$autoload['libraries'] = array('krumo', 'database', 'form_validation', 'encrypt', 'session');
 
 
 /*
@@ -64,7 +64,7 @@ $autoload['libraries'] = array('krumo', 'database');
 |	$autoload['helper'] = array('url', 'file');
 */
 
-$autoload['helper'] = array('url', 'file');
+$autoload['helper'] = array('url', 'email', 'array', 'date', 'form', 'security');
 
 
 /*
@@ -109,7 +109,7 @@ $autoload['language'] = array();
 |
 */
 
-$autoload['model'] = array();
+$autoload['model'] = array('users_model');
 
 
 /* End of file autoload.php */

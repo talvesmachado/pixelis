@@ -10,7 +10,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
 
-        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="<?php print base_url('css/bootstrap.min.css'); ?>">
         <style>
             body {
                 padding-top: 60px;
@@ -30,19 +30,29 @@
 		<?php endif; ?>
     </head>
     <body>
+		 <div class="container"><?php //krumo($this->session); ?></div>
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
         <![endif]-->
 		<div class="main-wrapper">
-		<?php
-			$this->load->view('includes/header');
-        ?>
-		<?php
-			$this->load->view($content_tpl);
-        ?>
-		<?php
-			$this->load->view('includes/footer');
-        ?>
+			<?php
+				$this->load->view('includes/header');
+	        ?>
+	        <div class="container">
+	        	<?php if(validation_errors()): ?>
+					    <div class="alert alert-error">
+					    <button type="button" class="close" data-dismiss="alert">×</button>
+							<?php echo validation_errors(); ?>
+					    </div>
+				<?php endif;?>
+				<?php
+					$this->load->view($content_tpl);
+		        ?>
+	        
+			<?php
+				$this->load->view('includes/footer');
+	        ?>
+	        </div>
         </div>
 		<!-- JS -->
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
